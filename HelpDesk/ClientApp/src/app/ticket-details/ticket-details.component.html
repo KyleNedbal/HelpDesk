@@ -1,1 +1,15 @@
-﻿<div style="border: 1px solid red">TicketDetails Component</div>
+<button (click)="addBookmark()">Add To Bookmarks</button>
+<div *ngIf="!sh">
+  Subject: {{helpdesksql.aTicket?.subj}}<br />
+  Complete: {{helpdesksql.aTicket?.complete}}<br />
+  Question: {{helpdesksql.aTicket?.question}}<br />
+  <button (click)="showEdit()">Edit Ticket</button>
+</div>
+<div *ngIf="sh">
+  Subject: <input type="text" [(ngModel)]="helpdesksql.aTicket.subj"/><br />
+  Complete: <input type="checkbox" [(ngModel)]="helpdesksql.aTicket.complete"/><br />
+  Question: <input type="text"  [(ngModel)]="helpdesksql.aTicket.question"/><br />
+  <button (click)="updateTicket(helpdesksql.aTicket)">Submit Change</button>
+  <button (click)="showEdit()">Cancel Edit</button>
+</div>
+

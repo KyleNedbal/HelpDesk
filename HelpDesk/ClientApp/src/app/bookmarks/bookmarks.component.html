@@ -1,0 +1,15 @@
+
+<h1>Your Bookmarks</h1>
+<div class="ticketGrid">
+
+
+  <div class="ticket" *ngFor="let t of helpdesksql?.tickets">
+
+    <div>
+      <a [routerLink]="['/ticketdetails', t?.id]">{{t.id}} {{t.subj}}</a>
+    </div>
+
+
+  </div>
+
+</div>
