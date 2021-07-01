@@ -1,1 +1,27 @@
-﻿<div style="border: 1px solid red">tickets Component</div>
+
+<h1>All the tickets!</h1>
+<button (click)="showAdd()" *ngIf="!sh">Create New Ticket</button>
+<div *ngIf="sh">
+  <app-add-ticket (hideAdd)="showAdd()"></app-add-ticket>
+</div>
+<div class="ticketGrid">
+
+
+  <a class="ticket" [routerLink]="['/ticketdetails', t?.id]" *ngFor="let t of helpdesksql?.tickets">
+
+    
+      <div>
+        {{t.subj}}
+      </div>
+      <div *ngIf="t.complete" style="color: green">
+        &#10003;
+      </div>
+      <div *ngIf="!t.complete" style="color: red">
+        &#10008;
+      </div>
+
+    
+
+  </a>
+
+</div>

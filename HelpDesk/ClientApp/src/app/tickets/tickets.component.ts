@@ -1,4 +1,5 @@
-﻿import { Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { HelpdesksqlService } from '../helpdesksql.service';
 
 @Component({
     selector: 'app-tickets',
@@ -7,8 +8,27 @@
 })
 /** tickets component*/
 export class TicketsComponent {
-    /** tickets ctor */
-    constructor() {
+  sh = false;
 
+  helpdesksql: HelpdesksqlService = null;
+    /** tickets ctor */
+    constructor(theHelpdesksql: HelpdesksqlService) {
+      this.helpdesksql = theHelpdesksql;
+      this.helpdesksql.getTheTickets();
+  }
+
+
+  reloadTickets() {
+    this.helpdesksql.getTheTickets();
+  }
+
+  showAdd() {
+    this.reloadTickets();
+    if (this.sh) {
+      this.sh = false;
+      return;
     }
+    this.sh = true;
+  }
+
 }

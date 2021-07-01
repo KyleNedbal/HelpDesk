@@ -1,0 +1,12 @@
+
+<div>
+Subject: <input type="text" [(ngModel)]="newTicket.subj"/>
+
+</div>
+<div>
+Question: <textarea type="text" [(ngModel)]="newTicket.question"></textarea>
+
+</div>
+
+<button (click)="addTicket(newTicket)">Submit</button>
+<button (click)="hideTheAdd()">Cancel Add</button>
