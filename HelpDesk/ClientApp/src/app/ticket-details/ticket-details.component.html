@@ -3,6 +3,7 @@
   Subject: {{helpdesksql.aTicket?.subj}}<br />
   Complete: {{helpdesksql.aTicket?.complete}}<br />
   Question: {{helpdesksql.aTicket?.question}}<br />
+  ID: {{helpdesksql.aTicket?.id}}<br />
   <button (click)="showEdit()">Edit Ticket</button>
 </div>
 <div *ngIf="sh">
@@ -12,4 +13,8 @@
   <button (click)="updateTicket(helpdesksql.aTicket)">Submit Change</button>
   <button (click)="showEdit()">Cancel Edit</button>
 </div>
+<div>
+    <app-responses [test]="'test'"></app-responses>
+</div>
+
 

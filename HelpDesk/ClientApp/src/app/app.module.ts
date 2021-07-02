@@ -14,6 +14,7 @@ import { HelpdesksqlService } from './helpdesksql.service';
 import { TicketDetailsComponent } from './ticket-details/ticket-details.component';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { AddTicketComponent } from './add-ticket/add-ticket.component';
+import { ResponsesComponent } from './responses/responses.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AddTicketComponent } from './add-ticket/add-ticket.component';
     TicketDetailsComponent,
     BookmarksComponent,
     AddTicketComponent,
+ResponsesComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

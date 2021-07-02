@@ -56,10 +56,28 @@ namespace HelpDesk.Controllers
 
 		[HttpPut("addaticket")]
 		public string AddATicket([FromBody] Ticket obj)
-{
+		{
 			DAL.AddOneTicket(obj);
 			string theJson = JsonSerializer.Serialize(obj);
 			return theJson;
 		}
+
+		[HttpPut("addaresponse")]
+		public string AddAResponse([FromBody] Response obj)
+		{
+			DAL.AddOneResponse(obj);
+			string theJson = JsonSerializer.Serialize(obj);
+			return theJson;
+		}
+
+		[HttpGet("getresponses/{id}")]
+		public string GetResponses(int id)
+		{
+			List<Response> resp = DAL.GetResponses(id);
+			string theJson = JsonSerializer.Serialize(resp);
+			return theJson;
+		}
+
+
 	}
 }
