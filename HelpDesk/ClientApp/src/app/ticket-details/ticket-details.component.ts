@@ -18,15 +18,24 @@ export class TicketDetailsComponent implements OnInit{
 
     /** TicketDetails ctor */
     constructor(private route: ActivatedRoute, theHelpdesksql: HelpdesksqlService) {
+
+
+      // why did the new helpdesksql still have values for the aTicket property?
+
+      debugger;
       this.helpdesksql = theHelpdesksql;
+      this.helpdesksql.aTicket = null;
+      this.route.params.subscribe(params => {
+        this.id = +params['id'];
+      })
+      this.helpdesksql.getATicket(this.id);
      
 }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.id = +params['id'];
-    })
-    this.helpdesksql.getATicket(this.id);
+    debugger;
+      
+
   }
 
   addBookmark() {

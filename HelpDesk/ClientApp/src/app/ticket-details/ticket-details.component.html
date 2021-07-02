@@ -6,7 +6,9 @@
   ID: {{helpdesksql.aTicket?.id}}<br />
   <button (click)="showEdit()">Edit Ticket</button>
 </div>
+
 <div *ngIf="sh">
+
   Subject: <input type="text" [(ngModel)]="helpdesksql.aTicket.subj"/><br />
   Complete: <input type="checkbox" [(ngModel)]="helpdesksql.aTicket.complete"/><br />
   Question: <input type="text"  [(ngModel)]="helpdesksql.aTicket.question"/><br />
@@ -14,7 +16,7 @@
   <button (click)="showEdit()">Cancel Edit</button>
 </div>
 <div>
-    <app-responses [test]="'test'"></app-responses>
+    <app-responses [tickId]="helpdesksql?.aTicket.id"></app-responses>
 </div>
 
 

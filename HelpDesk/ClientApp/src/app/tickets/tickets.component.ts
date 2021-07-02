@@ -10,19 +10,22 @@ import { HelpdesksqlService } from '../helpdesksql.service';
 export class TicketsComponent {
   sh = false;
 
+
   helpdesksql: HelpdesksqlService = null;
     /** tickets ctor */
     constructor(theHelpdesksql: HelpdesksqlService) {
       this.helpdesksql = theHelpdesksql;
-      this.helpdesksql.getTheTickets();
+      this.reloadTickets();
   }
 
 
   reloadTickets() {
+
     this.helpdesksql.getTheTickets();
   }
 
   showAdd() {
+    debugger;
     this.reloadTickets();
     if (this.sh) {
       this.sh = false;

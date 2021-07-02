@@ -34,7 +34,7 @@ export class HelpdesksqlService {
   getATicket(theId: number) {
     this.http.get<any>(`db/getticket/${theId}`).subscribe(result => {
       this.aTicket = result;
-
+      debugger;
 
     }, error => {
       console.log(error);

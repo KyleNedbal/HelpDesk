@@ -1,6 +1,8 @@
 import { Component, Input, OnInit} from '@angular/core';
 import { HelpdesksqlService } from '../helpdesksql.service';
 import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
     selector: 'app-responses',
@@ -11,15 +13,17 @@ import { FormBuilder } from '@angular/forms';
 export class ResponsesComponent implements OnInit{
 /** responses ctor */
 
-
+/*  tickId: number;*/
   
   @Input() tickId: number;
-  @Input() test: any;
+  //@Input() test: any;
+
+
 
 
   helpdesksql: HelpdesksqlService = null;
   theRes = {
-    ticket_id: 1,
+    ticket_id: null,
     response: '',
     votes: 0,
   }
@@ -27,9 +31,12 @@ export class ResponsesComponent implements OnInit{
 
 
 
-    constructor(theHelpdesksql: HelpdesksqlService) {
+    constructor(private route: ActivatedRoute, theHelpdesksql: HelpdesksqlService) {
       this.helpdesksql = theHelpdesksql;
-      console.log(this.test);
+  
+      debugger;
+
+      
     //this.helpdesksql.getATicket(this.tickId);
 
       
@@ -39,29 +46,34 @@ export class ResponsesComponent implements OnInit{
 
     //console.log(this.tickId);
 
-    //this.getAllResponses();
-
 
   }
 
   ngOnInit() {
+    
+    /*    this.tickId = this.route.snapshot.params['id'];*/
+    debugger;
+
+
+    this.helpdesksql.theResponses = null;
+    this.getAllResponses();
   }
 
   ngOnChanges() {
-    this.helpdesksql.getATicket(this.tickId);
+    
   }
 
 
   addResponse(aRes) {
-    console.log("adding a response");
-    console.log(this.helpdesksql.aTicket);
+
+
     this.helpdesksql.addTheResponse(aRes);
   }
 
   getAllResponses() {
-    
-    console.log("gettings all responses");
-    console.log(this.tickId);
+    debugger;
+
+
     this.helpdesksql.getTheResponses(this.tickId);
   }
 
