@@ -1,0 +1,10 @@
+
+Response: <input type="text" [(ngModel)]="theRes.response" />
+
+
+
+<button (click)="addResponse(theRes)">Add Response</button>
+
+<div *ngFor="let r of helpdesksql?.theResponses">
+  {{r?.ticket_id}} {{ r.response }} 
+</div>

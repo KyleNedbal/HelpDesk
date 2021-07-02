@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dapper.Contrib.Extensions;
 using MySql.Data.MySqlClient;
+using Dapper;
 
 namespace HelpDesk.Models
 {
@@ -58,5 +59,17 @@ namespace HelpDesk.Models
 		{
 			db.Insert(t);
 		}
+
+
+		public static List<Response> GetResponses(int id)
+		{
+			return db.Query<Response>($"select * from responses where ticket_id={id};").ToList();
+		}
+
+		public static void AddOneResponse(Response r)
+		{
+			db.Insert(r);
+		}
+
 	}
 }

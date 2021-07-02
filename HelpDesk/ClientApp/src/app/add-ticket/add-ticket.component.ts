@@ -27,6 +27,7 @@ export class AddTicketComponent {
 
 
   addTicket(aNewTicket) {
+    debugger;
     this.helpdesksql.addTheTicket(aNewTicket);
     this.hideTheAdd();
   }

@@ -13,6 +13,7 @@ namespace HelpDesk
     {
         public static void Main(string[] args)
         {
+            // Here is my test comment.
             CreateHostBuilder(args).Build().Run();
         }
 

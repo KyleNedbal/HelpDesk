@@ -7,7 +7,14 @@ import { Observable } from 'rxjs';
 export class HelpdesksqlService {
   http: HttpClient = null;
   tickets = null;
-  aTicket = null;
+  aTicket = {
+    id: null,
+    subj: '',
+    complete: false,
+    question: '',
+    
+  };
+  theResponses = null;
 
 
   constructor(theHttp: HttpClient) {
@@ -27,7 +34,7 @@ export class HelpdesksqlService {
   getATicket(theId: number) {
     this.http.get<any>(`db/getticket/${theId}`).subscribe(result => {
       this.aTicket = result;
-
+      debugger;
 
     }, error => {
       console.log(error);
@@ -67,6 +74,25 @@ export class HelpdesksqlService {
     }, error => {
         console.log(error);
     });
+  }
+
+  addTheResponse(theResponse) {
+    this.http.put<any>('db/addaresponse', theResponse).subscribe(result => {
+      console.log(result);
+    }, error => {
+        console.log(error);
+    });
+  }
+
+  getTheResponses(ticketId) {
+    this.http.get<any>(`db/getresponses/${ticketId}`).subscribe(result => {
+      console.log(ticketId);
+      console.log(result);
+      this.theResponses = result;
+    }, error => {
+      console.log(error);
+    });
+
   }
 
 

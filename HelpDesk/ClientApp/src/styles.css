@@ -25,24 +25,36 @@ code {
 }
 
 .ticket {
-  background-color: lightgreen;
-  filter: drop-shadow(2px 4px 4px black);
+  background-color: white;
+/*  filter: drop-shadow(2px 4px 4px black);*/
   width: 85%;
   height: 3rem;
-display: grid;
+  display: grid;
   grid-template-columns: 5fr 1fr;
   margin: auto;
+  text-decoration: none;
+border-radius: 5px;
 }
 
   .ticket > div {
-
-  margin: auto;
-
+color: black;
+    margin: auto;
+    text-decoration: none;
+    text-align: center;
   }
+.ticket > div:hover{
+text-decoration: none;
+}
 
   .ticket:hover {
-    filter: drop-shadow(2px 4px 4px blue);
+    filter: drop-shadow(2px 4px 4px black);
+    text-decoration: none;
+
   }
+
+body{
+background-color: lightblue;
+}
 
 
 
